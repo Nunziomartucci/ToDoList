@@ -11,7 +11,7 @@ class TodoController extends Controller
     public function index()
     {
         $todo = Todo::all();
-        return view('home', compact('todo'));
+        return view('welcome', compact('todo'));
     }
 
     public function store(Request $request)
