@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 class TodoController extends Controller
 {
     
+    
     public function index()
     {
-        $todolist = Todo::all();
-        return view('welcome', compact('todolist'));
+        $todo = Todo::all();
+        return view('welcome', compact('todo'));
     }
+
+
 
     public function store(Request $request)
     {
@@ -24,6 +27,7 @@ class TodoController extends Controller
        return back();
 
     }
+
 
     
     public function destroy(todo $todo)

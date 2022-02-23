@@ -37,11 +37,18 @@
                  {{--Logica della lista  --}}
 
 
-                            @if (count($todolists))
-                                <ul>
-                                    @foreach ($todolists as $todolist)
+                            @if (count($todo))
+                                <ul class="list-group list-group-flush">
+                                    @foreach ($todo as $todo)
                                          <li class="list-group-item">
-                                             <form action="{{route('destroy', $todolist->id)}}" method="POST"></form>
+                                             
+                                            <form action="{{route('destroy', $todo->id)}}" method="POST">
+                                                {{$todo->contenuto}}
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-link btn-sm float-end"><i class="fas fa-trash"></i></button>
+                                            </form>
+                                            
                                          </li>
                                     @endforeach
                                 </ul>    
