@@ -16,6 +16,9 @@
         <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
 
 
+        
+                 {{-- Creazione Card  --}}
+        
     </head>
         <body class="bg-success">
                 <div class="container w-25 mt-5">
@@ -29,6 +32,21 @@
                                     <button type="submit" class="btn btn-danger btn-sm px-3"><i class="fas fa-plus"></i></button>
                                 </div>
                             </form>
+
+
+                 {{--Logica della lista  --}}
+
+
+                            @if (count($todolists))
+                                <ul>
+                                    @foreach ($todolists as $todolist)
+                                         <li class="list-group-item">
+                                             <form action="{{route('destroy', $todolist->id)}}" method="POST"></form>
+                                         </li>
+                                    @endforeach
+                                </ul>    
+                            @endif
+
                         </div>
                     </div>
                 </div>
