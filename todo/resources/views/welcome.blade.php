@@ -29,7 +29,7 @@
                                 @csrf
                                 <div class="input-group">
                                     <input type="text" name="contenuto" class="form-control" placeholder="Aggiungi">
-                                    <button type="submit" class="btn btn-danger btn-sm px-3"><i class="fas fa-plus"></i></button>
+                                    <button type="submit" class="btn btn-info btn-sm px-3"><i class="fas fa-plus"></i></button>
                                 </div>
                             </form>
 
@@ -39,14 +39,17 @@
 
                             @if (count($todo))
                                 <ul class="list-group list-group-flush">
+                                    
                                     @foreach ($todo as $todo)
                                          <li class="list-group-item">
                                              
                                             <form action="{{route('destroy', $todo->id)}}" method="POST">
+                                                <input type="checkbox" id="box">
+                                               
                                                 {{$todo->contenuto}}
                                                 @csrf
                                                 @method('delete')
-                                                <button type="submit" class="btn btn-link btn-sm float-end"><i class="fas fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-link btn-sm float-end"><i class="fas fa-trash" style="color: red"></i></button>
                                             </form>
                                             
                                          </li>
